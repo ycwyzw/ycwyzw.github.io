@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-24T03:56:04.849Z</updated>
+  <updated>2019-12-24T04:35:41.905Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/12/24/tmall-springboot/"/>
     <id>http://yoursite.com/2019/12/24/tmall-springboot/</id>
     <published>2019-12-24T01:10:08.000Z</published>
-    <updated>2019-12-24T03:56:04.849Z</updated>
+    <updated>2019-12-24T04:35:41.905Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="spring-boot实现天猫前端和后台管理"><a href="#spring-boot实现天猫前端和后台管理" class="headerlink" title="spring boot实现天猫前端和后台管理"></a>spring boot实现天猫前端和后台管理</h3><hr><h4 id="选用技术"><a href="#选用技术" class="headerlink" title="选用技术"></a>选用技术</h4><ol><li>Java</li><li>前端：html, CSS, Javascript, JSON, AJAX, JQuery ,Bootstrap, Vue.js </li><li>框架：spring springMVC spring boot</li><li>中间件： redis,nginx,elasticsearch,shiro</li><li>数据库：MySQL</li><li>开发工具：idea,maven</li></ol><hr><h4 id="需求分析-前台"><a href="#需求分析-前台" class="headerlink" title="需求分析-前台"></a>需求分析-前台</h4><ol><li><p>首页<br>![首页]（<a href="https://stepimagewm.how2j.cn/8145.png）" target="_blank" rel="noopener">https://stepimagewm.how2j.cn/8145.png）</a><br>（1）在横向导航栏上提供4个分类连接<br>（2）在纵向导航栏上提供全部17个分类连接<br>（3）当鼠标移动到某一个纵向分类连接的时候，显示这个分类下的推荐商品<br>（4）按照每种分类显示5个商品的方式，显示所有17种分类    </p></li><li><p>分类页<br>（1）显示分辨率为950x100的当前分类图片<br>（2）显示本分类下的所有产品    </p></li><li><p>查询结果页<br>显示满足查询条件的商品</p></li><li><p>产品页<br>（1）显示分辨率为950x100的当前商品对应的分类图片<br>（2）显示本商品的5个单独图片<br>（3）商品的基本信息，如标题，小标题，价格，销量，评价数量，库存等<br>（4）商品详情<br>（5）评价信息<br>（6）5张商品详细图片</p></li><li><p>结算页面<br>在结算页面显示被选中的订单项</p></li><li><p>支付页面<br>确认支付页面显示本次订单的金额总数</p></li><li><p>支付成功页面<br>付款成功时，显示本次付款金额</p></li><li><p>购物车页面<br>在购物车中显示订单项</p></li><li><p>我的订单页面<br>显示所有订单，以及对应的订单项</p></li><li><p>确认收货页面<br>（1）显示订单项内容<br>（2）显示订单信息，收货人地址等    </p></li><li><p>确认收货成功页面</p></li><li><p>进行评论页面<br>（1）显示要评价的商品信息，商品当前的总评价数<br>（2）评价成功后，显示当前商品所有的评价信息    </p></li><li><p>登陆页面</p></li><li><p>注册页面</p></li></ol><hr><h4 id="需求分析后台-后台"><a href="#需求分析后台-后台" class="headerlink" title="需求分析后台-后台"></a>需求分析后台-后台</h4><ol><li>分类管理</li><li>分类属性管理</li><li>产品管理</li><li>产品属性设置</li><li>产品图片管理</li><li>用户管理</li><li>订单管理</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="spring-boot实现天猫前端和后台管理"><a href="#spring-boot实现天猫前端和后台管理" class="headerlink" title="spring boot实现天猫前端和后台管理"></a>spring boot实现天猫前端和后台管理</h3><hr><h4 id="选用技术"><a href="#选用技术" class="headerlink" title="选用技术"></a>选用技术</h4><ol><li>Java</li><li>前端：html, CSS, Javascript, JSON, AJAX, JQuery ,Bootstrap, Vue.js </li><li>框架：spring springMVC spring boot</li><li>中间件： redis,nginx,elasticsearch,shiro</li><li>数据库：MySQL</li><li>开发工具：idea,maven</li></ol><hr><h4 id="需求分析-前台"><a href="#需求分析-前台" class="headerlink" title="需求分析-前台"></a>需求分析-前台</h4><ol><li><p>首页<br>（1）在横向导航栏上提供4个分类连接<br>（2）在纵向导航栏上提供全部17个分类连接<br>（3）当鼠标移动到某一个纵向分类连接的时候，显示这个分类下的推荐商品<br>（4）按照每种分类显示5个商品的方式，显示所有17种分类    </p></li><li><p>分类页<br>（1）显示分辨率为950x100的当前分类图片<br>（2）显示本分类下的所有产品    </p></li><li><p>查询结果页<br>显示满足查询条件的商品</p></li><li><p>产品页<br>（1）显示分辨率为950x100的当前商品对应的分类图片<br>（2）显示本商品的5个单独图片<br>（3）商品的基本信息，如标题，小标题，价格，销量，评价数量，库存等<br>（4）商品详情<br>（5）评价信息<br>（6）5张商品详细图片</p></li><li><p>结算页面<br>在结算页面显示被选中的订单项</p></li><li><p>支付页面<br>确认支付页面显示本次订单的金额总数</p></li><li><p>支付成功页面<br>付款成功时，显示本次付款金额</p></li><li><p>购物车页面<br>在购物车中显示订单项</p></li><li><p>我的订单页面<br>显示所有订单，以及对应的订单项</p></li><li><p>确认收货页面<br>（1）显示订单项内容<br>（2）显示订单信息，收货人地址等    </p></li><li><p>确认收货成功页面</p></li><li><p>进行评论页面<br>（1）显示要评价的商品信息，商品当前的总评价数<br>（2）评价成功后，显示当前商品所有的评价信息    </p></li><li><p>登陆页面</p></li><li><p>注册页面</p></li></ol><hr><h4 id="需求分析后台-后台"><a href="#需求分析后台-后台" class="headerlink" title="需求分析后台-后台"></a>需求分析后台-后台</h4><ol><li>分类管理</li><li>分类属性管理</li><li>产品管理</li><li>产品属性设置</li><li>产品图片管理</li><li>用户管理</li><li>订单管理</li></ol>]]></content>
     
     <summary type="html">
     
