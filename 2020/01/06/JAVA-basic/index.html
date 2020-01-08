@@ -126,11 +126,13 @@
 <meta property="og:url" content="http://yoursite.com/2020/01/06/JAVA-basic/index.html">
 <meta property="og:site_name" content="Ycw&#39; blogs">
 <meta property="og:description" content="Java基础知识">
+<meta property="og:image" content="https://camo.githubusercontent.com/8f6eceddf64b5948c69a398d1a0e777c9c7f8e5b/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f4a6176612532302545372541382538422545352542412538462545382542462539302545382541312538432545382542462538372545372541382538422e706e67">
 <meta property="article:published_time" content="2020-01-06T06:16:28.000Z">
-<meta property="article:modified_time" content="2020-01-06T06:31:03.692Z">
+<meta property="article:modified_time" content="2020-01-08T01:55:45.081Z">
 <meta property="article:author" content="ycw">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/8f6eceddf64b5948c69a398d1a0e777c9c7f8e5b/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f4a6176612532302545372541382538422545352542412538462545382542462539302545382541312538432545382542462538372545372541382538422e706e67">
 
 
 
@@ -356,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.2k
                 </span>
               
 
@@ -372,7 +374,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -397,7 +399,57 @@
       
 
       
-        
+        <h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><ul>
+<li><p>面向过程：性能高，因为类调用需要实例化。</p>
+</li>
+<li><p>面向对象：易维护，易复用，易扩展。</p>
+</li>
+<li><p>但是不是 Java 性能差的根本原因，面向过程也需要分配内存，计算内存偏移量，主要原因是 Java 是半编译语言，最终执行代码并不是可以直接被CPU执行的二进制机械码，而面向过程的语言大多是直接编译成机械码在电脑上执行，并且其他一些面向过程的脚本语言性能也并不一定比 Java 好。</p>
+</li>
+</ul>
+<h3 id="JVM-JDK-和-JRE"><a href="#JVM-JDK-和-JRE" class="headerlink" title="JVM JDK 和 JRE"></a>JVM JDK 和 JRE</h3><h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><p>Java虚拟机是运行在Java字节码的虚拟机，VM有针对不同系统的特定实现（Windows，Linux，macOS），目的是使用相同的字节码，它们都会给出相同的结果。</p>
+<h4 id="什么是字节码-采用字节码的好处是什么"><a href="#什么是字节码-采用字节码的好处是什么" class="headerlink" title="什么是字节码?采用字节码的好处是什么?"></a>什么是字节码?采用字节码的好处是什么?</h4><p>JVM 可以理解的代码叫做字节码（即扩展名为.class的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。</p>
+<p>Java 程序从源代码</p>
+<img src="https://camo.githubusercontent.com/8f6eceddf64b5948c69a398d1a0e777c9c7f8e5b/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f4a6176612532302545372541382538422545352542412538462545382542462539302545382541312538432545382542462538372545372541382538422e706e67">
+
+<p>  <strong>我们需要格外注意的是 .class-&gt;机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言.</strong></p>
+<p><strong>HotSpot采用了惰性评估(Lazy Evaluation)的做法，根据二八定律，消耗大部分系统资源的只有那一小部分的代码（热点代码），而这也就是JIT所需要编译的部分。JVM会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。JDK 9引入了一种新的编译模式AOT(Ahead of Time Compilation)，它是直接将字节码编译成机器码，这样就避免了JIT预热等各方面的开销。JDK支持分层编译和AOT协作使用。但是 ，AOT 编译器的编译质量是肯定比不上 JIT 编译器的。</strong></p>
+<h4 id="JDK和JRE"><a href="#JDK和JRE" class="headerlink" title="JDK和JRE"></a>JDK和JRE</h4><p>JDK是Java Development Kit，它是功能齐全的Java SDK。它拥有JRE所拥有的一切，还有编译器（javac）和工具（如javadoc和jdb）。它能够创建和编译程序。</p>
+<p>JRE 是 Java运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java虚拟机（JVM），Java类库，java命令和其他的一些基础构件。但是，它不能用于创建新程序。</p>
+<h3 id="Java基本类型"><a href="#Java基本类型" class="headerlink" title="Java基本类型"></a>Java基本类型</h3><ul>
+<li><p>byte/8</p>
+</li>
+<li><p>char/16</p>
+</li>
+<li><p>short/16</p>
+</li>
+<li><p>int/32</p>
+</li>
+<li><p>float/32</p>
+</li>
+<li><p>long/64</p>
+</li>
+<li><p>double/64</p>
+</li>
+<li><p>boolean/~</p>
+<p>  boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true，0 表示 false。JVM 支持 boolean 数组，但是是通过读写 byte 数组来实现的。</p>
+</li>
+</ul>
+<h3 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h3><ul>
+<li><p>基本类型有默认值，而包装类型初始为null。</p>
+</li>
+<li><p>在Java中，一切皆对象，但八大基本类型却不是对象。</p>
+</li>
+<li><p>声明方式的不同，基本类型无需通过new关键字来创建，而封装类型需new关键字。 </p>
+</li>
+<li><p>存储方式及位置的不同，基本类型是直接存储变量的值保存在堆栈中能高效的存取，封装类型需要通过引用指向实例，具体的实例保存在堆中。</p>
+</li>
+<li></li>
+</ul>
+<p>基本类型都有对应的包装类型，基本类型相互对应的包装类型之间的赋值使用自动装箱与拆箱完成。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">整数 x =  <span class="number">2</span> ;     <span class="comment">//装箱调用了Integer.valueOf（2）</span></span><br><span class="line"><span class="keyword">int</span> y = x;         <span class="comment">//拆箱调用了X.intValue（）</span></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -436,6 +488,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/07/Opreation-System/" rel="prev" title="操作系统">
+                操作系统 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -487,8 +543,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,7 +572,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,6 +652,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象和面向过程的区别"><span class="nav-number">1.</span> <span class="nav-text">面向对象和面向过程的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-JDK-和-JRE"><span class="nav-number">2.</span> <span class="nav-text">JVM JDK 和 JRE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM"><span class="nav-number">2.1.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是字节码-采用字节码的好处是什么"><span class="nav-number">2.2.</span> <span class="nav-text">什么是字节码?采用字节码的好处是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK和JRE"><span class="nav-number">2.3.</span> <span class="nav-text">JDK和JRE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java基本类型"><span class="nav-number">3.</span> <span class="nav-text">Java基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类型"><span class="nav-number">4.</span> <span class="nav-text">包装类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
